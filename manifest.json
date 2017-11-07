@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+
+  "name": "EAF Pipedrive Adjustments",
+  "description": "This extension adjusts the interface of Pipedrive for better usability at EAF.",
+  "version": "0.1.0",
+
+  "content_scripts": [
+    {
+      "matches": ["https://eafoundation.pipedrive.com/*"],
+      "js": ["jquery-3.2.1.min.js", "content.js"]
+    }
+  ],
+
+  "permissions": [
+    "https://eafoundation.pipedrive.com/*"
+  ]
+}
