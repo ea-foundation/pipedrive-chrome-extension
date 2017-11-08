@@ -3,7 +3,7 @@
 
   "name": "EAF Pipedrive Adjustments",
   "description": "This extension adjusts the interface of Pipedrive for better usability at EAF.",
-  "version": "0.1.0",
+  "version": "0.1.1",
 
   "content_scripts": [
     {

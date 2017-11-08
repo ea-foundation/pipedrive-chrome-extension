@@ -16,9 +16,14 @@ $(document).ready(function() {
      */
     function mutationHandler(mutations) {
         mutations.forEach(function(mutation) {
-          if (!foundDealsBox && isElementVisible('dealsOverview') && isElementVisible('dealChange')) {
+          if (!foundDealsBox && isElementVisible('dealsOverview')) {
               foundDealsBox = true;
               personViewAdjustments();
+          }
+
+          if (!foundDealChange && isElementVisible('dealChange')) {
+            foundDealChange = true;
+            activityFeedAdjustments();
           }
 
           if (!foundNavigation && document.getElementById('mainmenu')) {
@@ -41,6 +46,9 @@ $(document).ready(function() {
     function personViewAdjustments() {
         // Adjust Deals box in sidebar
         var totalDonations = $('.dealsOverview .legend .won>td:nth-child(2)').text();
+        if (totalDonations == '') {
+        	totalDonations = '0';
+        }
         var totalAmount = $('.dealsOverview .legend .won>td:nth-child(4)').text();
         $('.dealsOverview .dealsTitle, .openDeals, .closedDealsChart').remove();
         $('.dealsOverview .columnItem').text('Donations (' + totalDonations + '): ' + totalAmount);
@@ -60,7 +68,12 @@ $(document).ready(function() {
             notesCollapsed = !notesCollapsed;
             event.stopPropagation();
         });
+    }
 
+    /**
+     * Modify elements in the activity feed in the person detail view.
+     */
+    function activityFeedAdjustments() {
         // Hide "Deal created" events
         $('.dealChange:has(.status.open)').hide();
     }
@@ -86,6 +99,7 @@ $(document).ready(function() {
 
     // initialize status variables
     var foundDealsBox = false;
+    var foundDealChange = false;
     var foundNavigation = false;
     var url = document.location.href;
 
