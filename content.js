@@ -74,6 +74,9 @@ $(document).ready(function() {
      * Modify elements in the navigation.
      */
     function navigationAdjustments() {
+        if ($('.key-organizations')) {
+          return;
+        }
         $('.logo_container a').attr('href', '/persons'); // change logo target to person list
         $('.key-pipeline .label').text('Donations'); // change Deals to Donations
         $('.key-activities').after(
