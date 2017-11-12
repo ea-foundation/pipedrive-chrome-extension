@@ -74,7 +74,7 @@ $(document).ready(function() {
      * Modify elements in the navigation.
      */
     function navigationAdjustments() {
-        if ($('.key-organizations')) {
+        if ($('.key-organizations').length > 0) {
           return;
         }
         $('.logo_container a').attr('href', '/persons'); // change logo target to person list
