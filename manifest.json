@@ -8,7 +8,7 @@
   "content_scripts": [
     {
       "matches": ["https://eafoundation.pipedrive.com/*"],
-      "js": ["jquery-3.2.1.min.js", "content.js"]
+      "js": ["jquery-3.7.0.min.js", "content.js"]
     }
   ],
 
